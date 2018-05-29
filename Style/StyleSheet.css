@@ -1,0 +1,45 @@
+﻿body {
+    background-color: grey;
+}
+
+#Header{
+    background-color: red;
+    width: 100%;
+    height: 15%;
+    padding-top: 3%;
+}
+
+#logo {
+    float:left;
+}
+
+#Navbar { 
+      width: auto;
+      height: 70%;
+      margin-top: 3%;
+      background-color: yellow;
+      
+}
+
+.NavbarButton {
+    width: 20%;
+    height: auto;
+    margin: 1%;
+    background-color:black;
+    display: inline-block;
+    opacity: 1;
+    transition: 0.3;
+}
+
+.NavbarButton:hover {
+    opacity: 0.6;
+}
+
+#Sidebar {
+    float: left;
+    background-color: black;
+    width: 30%;
+    height: 90%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}

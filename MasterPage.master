@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8"/>
+	<meta name="description" 	content="Free Web tutorials"/>
+	<meta name="keywords" 		content="HTML,CSS,XML,JavaScript"/>
+	<meta name="author" 		content="JOTY-Realisatie"/>
+	<meta name="viewport" 		content="width=device-width, initial-scale=1.0"/>
+	<link href="Style/Stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+
+    <form id="form1" runat="server">
+
+    <!-- Header -->
+    <div id="Header">
+        <img src ="" alt="Logo" id="Logo" />
+    </div>
+    <!-- Navbar -->
+    <div id="Navbar">
+        <a href="/Default.aspx" class="NavbarButton">Home</a>
+        <a href="#" class="NavbarButton">Voorraad</a>
+        <a href="#" class="NavbarButton">Afschrijven</a>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="Sidebar">
+
+    </div>
+
+    <!-- Content -->
+    <div id="Content">
+        <asp:ContentPlaceHolder id="ContentAsp" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+   <footer>
+
+
+   </footer>
+    <div>
+
+    </div>
+    </form>
+</body>
+</html>
