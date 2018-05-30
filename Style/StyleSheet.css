@@ -1,45 +1,173 @@
 ﻿body {
-    background-color: grey;
+    background-color: #ededed;
+    
 }
 
-#Header{
-    background-color: red;
-    width: 100%;
+#Header {
+    float: right;
+    background-color: darkgrey;
+    width: 80%;
     height: 15%;
-    padding-top: 3%;
+    padding-top: 1%;
+    box-shadow: 5px 10px black;
 }
 
-#logo {
-    float:left;
-}
 
-#Navbar { 
-      width: auto;
-      height: 70%;
-      margin-top: 3%;
-      background-color: yellow;
-      
-}
-
-.NavbarButton {
-    width: 20%;
-    height: auto;
-    margin: 1%;
-    background-color:black;
-    display: inline-block;
-    opacity: 1;
-    transition: 0.3;
-}
-
-.NavbarButton:hover {
-    opacity: 0.6;
-}
-
-#Sidebar {
+.logo {
     float: left;
-    background-color: black;
-    width: 30%;
-    height: 90%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    width: 20%;
+    height: 15%;
+    padding-top: 1%;
+}
+
+img {
+    width: 100%;
+    height: 75px;
+}
+
+
+/*navbar van W3schools*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #ccc;
+    overflow: hidden;
+    height: 50px;
+    
+}
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        border: 1px solid #ededed;
+        float: left;
+        display: block;
+        color: #ffffff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color: #f68827;
+    color: #ffffff;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+}
+
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover {
+    background-color: #f68827;
+    color: white;
+}
+
+/* Add a grey background to dropdown links on hover */
+.a:hover {
+    background-color: #f68827;
+    color: black;
+}
+
+
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+        .topnav.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+    .topnav.responsive {
+        float: none;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/*content box*/
+.content {
+    float: right;
+    border-color: black;
+    width: 75%;
+    height: 80%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    box-shadow: 5px 10px black;
+}
+
+.Sidebar {
+    float: left;
+    width: 24%;
+    height: 100%;
+    margin-top: 1%;
+}
+
+/*Opmaak sidebar menu*/
+ul {
+    list-style: none;
+}
+
+    ul li {
+        width: 80%;
+        background: #ccc;
+        padding: 20px;
+        border-top: 5px solid #ededed;
+        transition: opacity .2s, margin-left .5s;
+    }
+
+        ul li a {
+            text-decoration: none;
+            font-size: 17px;
+            text-align: left;
+            color: #fff;
+            text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+        }
+
+        ul li:hover {
+            opacity: .9;
+            margin-left: 7px;
+        }
+
+
+.Footer {
+    float: left;
+    background-color: #2F364C;
+    width: 100%;
+    height: 100%;
+    box-shadow: 5px 10px black;
 }

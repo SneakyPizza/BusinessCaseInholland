@@ -4,47 +4,62 @@
 
 <html>
 <head runat="server">
-    <meta charset="UTF-8"/>
-	<meta name="description" 	content="Free Web tutorials"/>
-	<meta name="keywords" 		content="HTML,CSS,XML,JavaScript"/>
-	<meta name="author" 		content="JOTY-Realisatie"/>
-	<meta name="viewport" 		content="width=device-width, initial-scale=1.0"/>
-	<link href="Style/Stylesheet.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Free Web tutorials" />
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+    <meta name="author" content="JOTY-Realisatie" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Style/Stylesheet.css" rel="stylesheet" />
+    <link href="Style/navbar.js" rel="javascript" />
 </head>
 <body>
 
     <form id="form1" runat="server">
 
-    <!-- Header -->
-    <div id="Header">
-        <img src ="" alt="Logo" id="Logo" />
-    </div>
-    <!-- Navbar -->
-    <div id="Navbar">
-        <a href="/Default.aspx" class="NavbarButton">Home</a>
-        <a href="#" class="NavbarButton">Voorraad</a>
-        <a href="#" class="NavbarButton">Afschrijven</a>
-    </div>
-
-    <!-- Sidebar -->
-    <div id="Sidebar">
-
-    </div>
-
-    <!-- Content -->
-    <div id="Content">
-        <asp:ContentPlaceHolder id="ContentAsp" runat="server">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="img/JOTY_Realisatie_Logo.png" alt="Logo" id="Logo" />
+        </div>
         
-        </asp:ContentPlaceHolder>
-    </div>
+        <!-- Header -->
+        <div id="Header">
+            <img src="" alt="Logo" id="Logo" />
+        </div>
+        
 
-   <footer>
+        <!-- navigationbar -->
+        <div class="topnav" id="myTopnav">
+            <a href="#planning">Planning</a>
+            <a href="#crm">CRM</a>
+            <a href="#voorraad" class="active">Voorraad</a>
+            <a href="#management">Management</a>
+            <a href="#inloggen">Inloggen</a>
+            <a href="#uitloggen">Uitloggen</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
 
+        <!-- Sidebar -->
+        <div class="Sidebar">
+            <ul>
+            <li><a href="#">Ingrediënten</a></li>
+            <li><a href="#">Dranken</a></li>
+            <li><a href="#">Afboeken</a></li>
+            <li><a href="#">Bestellen</a></li>
+                </ul>
+        </div>
+        <!-- Content -->
+        <div class="content" id="ContentAsp">
+            <h1>%print paginanaam%</h1>
+        </div>
 
-   </footer>
-    <div>
+        <div class="Footer">
+        </div>
 
-    </div>
     </form>
+
+
+
 </body>
+
+        
 </html>
