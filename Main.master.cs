@@ -9,22 +9,29 @@ using System.Configuration;
 
 public partial class Main : System.Web.UI.MasterPage
 {
-    private OleDbConnection _conn;
+    private static OleDbConnection _conn;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         _conn = new OleDbConnection();
         _conn.ConnectionString = ConfigurationManager.ConnectionStrings["JECO"].ToString();
 
-         OleDbCommand cmd = new OleDbCommand();
-         cmd.Connection = _conn;
-         cmd.CommandText = "SELECT * FROM Producten";
-
-
          try
          {
              _conn.Open();
-         }
+
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = _conn;
+            cmd.CommandText = "SELECT * FROM Product";
+
+            OleDbDataReader r = cmd.ExecuteReader();
+            r.Read();
+            while (r.Read())
+            {
+                _TestLabel.Text = String.Format("{0}: {1}<br /> \n", r["ProductNr"].ToString(), r["Naam"].ToString());
+            }
+
+        }
          catch(Exception exc)
          {
              //Error message Display
@@ -33,11 +40,12 @@ public partial class Main : System.Web.UI.MasterPage
          finally
          {
              _conn.Close();
+            _ErrorText.Text = "Done";
          }
 
     }
 
-    public OleDbConnection Conn()
+    public static OleDbConnection Conn()
     {
         return _conn;
     }
