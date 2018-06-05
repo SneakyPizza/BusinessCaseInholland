@@ -56,20 +56,12 @@
             <asp:ContentPlaceHolder ID="ContentAsp" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
-<<<<<<< HEAD
     <footer>
         <a href="https://github.com/SneakyPizza/BusinessCaseInholland">JOTY Realisatie - 2018</a>
         <asp:Label ID="_ErrorText" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Label ID="_TestLabel" runat="server" Text="Label"></asp:Label>
     </footer>
-=======
-        <footer>
-            <a href="https://github.com/SneakyPizza/BusinessCaseInholland">JOTY Realisatie - 2018</a>
-            <asp:Label ID="_ErrorText" runat="server" Text="Label"></asp:Label>
-        </footer>
->>>>>>> 74001598588e1eff397b519001ff792570a25c6d
     </form>
 
 </body>
