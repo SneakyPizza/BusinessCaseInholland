@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<!-- Head -->
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="description" content="JECO Sushi" />
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+    <meta name="author" content="JOTY-Realisatie" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Style/Stylesheet.css" rel="stylesheet" />
+    <link href="Style/navbar.js" rel="javascript" />
+    <title></title>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="img/JOTY_Realisatie_Logo.png" alt="Logo" id="Logo" />
+        </div>
+        
+        <!-- Header -->
+        <div id="Header">
+            <!-- <img src="" alt="Logo" id="Logo" /> -->
+        </div>
+        
+
+        <!-- navigationbar -->
+        <div class="topnav" id="myTopnav">
+            <a href="#planning">Planning</a>
+            <a href="#crm">CRM</a>
+            <a href="#voorraad" class="active">Voorraad</a>
+            <a href="#management">Management</a>
+            <a href="#inloggen">Inloggen</a>
+            <a href="#uitloggen">Uitloggen</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="Sidebar">
+            <ul>
+            <li><a href="#">Ingrediënten</a></li>
+            <li><a href="#">Dranken</a></li>
+            <li><a href="#">Afboeken</a></li>
+            <li><a href="#">Bestellen</a></li>
+            </ul>
+        </div>
+        <!-- Content -->
+        <div Id="content">
+            <asp:ContentPlaceHolder ID="ContentAsp" runat="server">
+
+            </asp:ContentPlaceHolder>        
+        </div>
+
+    <footer>
+        <a href="https://github.com/SneakyPizza/BusinessCaseInholland">JOTY Realisatie - 2018</a>
+        <asp:Label ID="_ErrorText" runat="server" Text="Label"></asp:Label>
+    </footer>
+    </form>
+
+    </body>
+
+
+
+        
+</html>
