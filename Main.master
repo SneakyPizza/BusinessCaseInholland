@@ -18,16 +18,18 @@
 
     <form id="form1" runat="server">
 
-        <!-- Logo -->
+        <!-- Logo 
         <div class="logo">
-            <img src="img/JOTY_Realisatie_Logo.png" alt="Logo" id="Logo" />
-        </div>
-        
+            <img src="img/textlogodish.png" alt="Logo" id="Logo" />
+        </div>-->
+
         <!-- Header -->
-        <div id="Header">
-            <!-- <img src="" alt="Logo" id="Logo" /> -->
-        </div>
-        
+        <header>
+            <div class="logo">
+                <img src="img/textlogodish.png" alt="Logo" id="Logo" />
+            </div>
+        </header>
+
 
         <!-- navigationbar -->
         <div class="topnav" id="myTopnav">
@@ -43,28 +45,27 @@
         <!-- Sidebar -->
         <div class="Sidebar">
             <ul>
-            <li><a href="#">Ingrediënten</a></li>
-            <li><a href="#">Dranken</a></li>
-            <li><a href="#">Afboeken</a></li>
-            <li><a href="#">Bestellen</a></li>
+                <li><a href="#">Ingrediënten</a></li>
+                <li><a href="#">Dranken</a></li>
+                <li><a href="#">Afboeken</a></li>
+                <li><a href="#">Bestellen</a></li>
             </ul>
         </div>
         <!-- Content -->
-        <div Id="content">
+        <div id="content">
             <asp:ContentPlaceHolder ID="ContentAsp" runat="server">
-
-            </asp:ContentPlaceHolder>        
+            </asp:ContentPlaceHolder>
         </div>
 
-    <footer>
-        <a href="https://github.com/SneakyPizza/BusinessCaseInholland">JOTY Realisatie - 2018</a>
-        <asp:Label ID="_ErrorText" runat="server" Text="Label"></asp:Label>
-    </footer>
+        <footer>
+            <a href="https://github.com/SneakyPizza/BusinessCaseInholland">JOTY Realisatie - 2018</a>
+            <asp:Label ID="_ErrorText" runat="server" Text="Label"></asp:Label>
+        </footer>
     </form>
 
-    </body>
+</body>
 
 
 
-        
+
 </html>

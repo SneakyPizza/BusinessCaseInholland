@@ -13,7 +13,7 @@ public partial class Main : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        _conn = new OleDbConnection();
+        /*_conn = new OleDbConnection();
         _conn.ConnectionString = ConfigurationManager.ConnectionStrings["JECO"].ToString();
 
          OleDbCommand cmd = new OleDbCommand();
@@ -33,7 +33,7 @@ public partial class Main : System.Web.UI.MasterPage
          finally
          {
              _conn.Close();
-         }
+         } */
 
     }
 

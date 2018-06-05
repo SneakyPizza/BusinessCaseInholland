@@ -9,8 +9,8 @@
 #Header {
     float: right;
     background-color: darkgrey;
-    width: 80%;
-    height: 15%;
+    width: 100%;
+    height: auto;
     padding-top: 1%;
     box-shadow: 5px 10px black;
 }
@@ -18,14 +18,22 @@
 
 .logo {
     float: left;
-    width: 20%;
-    height: 15%;
+    width: 300px;
+    height: auto;
     padding-top: 1%;
 }
 
+@media screen and (max-width: 600px) {
+   .logo{
+       margin: auto;
+       float: none;
+   }
+
+}
+
 img {
-    width: 100%;
-    height: 75px;
+    width: 300px;
+    height: auto;
 }
 
 
@@ -50,7 +58,6 @@ img {
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
-        
     }
 
 /* Add an active class to highlight the current page */
@@ -144,34 +151,35 @@ img {
     background: #ccc;
 }
 
-/*Opmaak sidebar menu*/
+    /*Opmaak sidebar menu*/
     .Sidebar ul {
         list-style: none;
         float: left;
+        padding-left: 0px;
     }
 
-    ul li {
-        width: 100%;
-        height: 20%;
-        background: #ccc;
-        padding: 10px;
-        border-top: 3px solid #ededed;
-        transition: opacity .2s, margin-left .5s;
-        float: left;
+ul li {
+    width: calc(100% - 10%);
+    height: 20%;
+    background: #ccc;
+    padding: 10px;
+    border-top: 3px solid #ededed;
+    transition: opacity .2s, margin-left .5s;
+    float: left;
+}
+
+    ul li a {
+        text-decoration: none;
+        font-size: 17px;
+        text-align: left;
+        color: #fff;
+        text-shadow: 0 0 1px rgba(0, 0, 0, 1);
     }
 
-        ul li a {
-            text-decoration: none;
-            font-size: 17px;
-            text-align: left;
-            color: #fff;
-            text-shadow: 0 0 1px rgba(0, 0, 0, 1);
-        }
-
-        ul li:hover {
-            opacity: .9;
-            margin-left: 7px;
-        }
+    ul li:hover {
+        opacity: .9;
+        margin-left: 7px;
+    }
 
 
 footer {
@@ -183,8 +191,8 @@ footer {
     text-align: center;
 }
 
-footer a {
-    margin-top: 10%;
-    font-family: Arial, Helvetica, sans-serif;
-    color: dimgrey;
-}
+    footer a {
+        margin-top: 10%;
+        font-family: Arial, Helvetica, sans-serif;
+        color: dimgrey;
+    }
