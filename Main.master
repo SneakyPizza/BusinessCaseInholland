@@ -44,6 +44,7 @@
         <div class="vertical-menu">
             <a href="IngredientsPage .aspx" class="active">Ingrediënten</a>
             <a href="DrinksPage.aspx">Dranken</a>
+            <a href="NonFoodPage.aspx">Non-food</a>
             <a href="AfboekenPage.aspx">Afboeken</a>
             <a href="BestellenPage.aspx">Bestellen</a>
         </div>
