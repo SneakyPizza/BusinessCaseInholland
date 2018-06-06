@@ -20,17 +20,6 @@ public partial class Main : System.Web.UI.MasterPage
          {
              _conn.Open();
 
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = _conn;
-            cmd.CommandText = "SELECT * FROM Product";
-
-            OleDbDataReader r = cmd.ExecuteReader();
-            r.Read();
-            while (r.Read())
-            {
-                _TestLabel.Text = String.Format("{0}: {1}<br /> \n", r["ProductNr"].ToString(), r["Naam"].ToString());
-            }
-
         }
          catch(Exception exc)
          {
@@ -42,7 +31,7 @@ public partial class Main : System.Web.UI.MasterPage
              _conn.Close();
             _ErrorText.Text = "Done";
          }
-
+   
     }
 
     public static OleDbConnection Conn()

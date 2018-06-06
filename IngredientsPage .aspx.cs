@@ -12,23 +12,26 @@ public partial class IngredientsPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Main.Conn() != null)
+        try
         {
-            _conn = Main.Conn();
-            _conn.Open();
-
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = _conn;
-            cmd.CommandText = "SELECT * FROM product";
-
-            OleDbDataReader r = cmd.ExecuteReader();
-            r.Read();
-            while (r.Read())
+            if (Main.Conn() != null)
             {
-                IngredientTestLabel.Text = String.Format("{0}: {1}<br /> \n", r["ProductNr"].ToString(), r["Naam"].ToString());
+                _conn = Main.Conn();
+                _conn.Open();
+
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = _conn;
+                cmd.CommandText = "SELECT * FROM product";
+
             }
-
         }
-
+        catch(Exception exc)
+        {
+            //Main._ErrorText.Text = exc.Message;
+        }
+        finally
+        {
+            _conn.Close();
+        }
     }
 }
