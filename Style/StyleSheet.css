@@ -1,34 +1,33 @@
 ﻿html, body, form {
-    background-color: #ededed;
-    width: 100%;
+    background-color: #A61C3C;
+    width: 95%;
     height: 100%;
     padding: 0;
-    margin: 0;
+    margin: auto;
 }
 
-#Header {
+.header {
+    background-color: #E1DEE3;
     float: right;
-    background-color: darkgrey;
     width: 100%;
     height: auto;
     padding-top: 1%;
-    box-shadow: 5px 10px black;
 }
 
 
 .logo {
-    float: left;
+    float: none;
     width: 300px;
     height: auto;
     padding-top: 1%;
+    margin: auto;
 }
 
-@media screen and (max-width: 600px) {
-   .logo{
-       margin: auto;
-       float: none;
-   }
-
+@media screen and (max-width: 1400px ) {
+    .logo {
+        margin: auto;
+        float: none;
+    }
 }
 
 img {
@@ -41,53 +40,55 @@ img {
 
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #ccc;
+    background-color: #E1DEE3;
     overflow: hidden;
-    height: 50px;
+    height: 48px;
     display: inline-block;
     width: 100%;
 }
 
     /* Style the links inside the navigation bar */
     .topnav a {
-        border: 1px solid #ededed;
-        float: left;
+        border-left: 1px solid #ededed;
+        float: right;
         display: block;
-        color: #ffffff;
+        color: #4F4641;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+        width: 110px;
     }
 
 /* Add an active class to highlight the current page */
 .active {
-    background-color: #f68827;
-    color: #ffffff;
+    background-color: #A61C3C;
+    color: white;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
+    float: right;
 }
 
 
 /* Add a dark background on topnav links and the dropdown button on hover */
 .topnav a:hover {
-    background-color: #f68827;
+    background-color: #A61C3C;
     color: white;
 }
 
 /* Add a grey background to dropdown links on hover */
 .a:hover {
-    background-color: #f68827;
+    background-color: #A61C3C;
     color: black;
 }
 
 
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px ) {
     .topnav a:not(:first-child) {
         display: none;
     }
@@ -99,7 +100,7 @@ img {
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px ) {
     .topnav.responsive {
         position: relative;
     }
@@ -133,61 +134,55 @@ img {
 
 /*content box*/
 .content {
+    background-color: #ffffff;
     float: right;
-    border-color: black;
-    width: 75%;
-    height: 80%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    box-shadow: 5px 10px black;
+    width: 80%;
+    height: 100%;
 }
 
-.Sidebar {
+/*.Sidebar {
     float: left;
     width: 15%;
     height: 100%;
     margin-top: 1%;
     display: block;
     background: #ccc;
-}
+} */
 
-    /*Opmaak sidebar menu*/
-    .Sidebar ul {
-        list-style: none;
-        float: left;
-        padding-left: 0px;
-    }
-
-ul li {
-    width: calc(100% - 10%);
-    height: 20%;
-    background: #ccc;
-    padding: 10px;
-    border-top: 3px solid #ededed;
-    transition: opacity .2s, margin-left .5s;
+/*Opmaak sidebar menu*/
+.vertical-menu {
+    width: 20%;
     float: left;
+    height: 100%;
+    display: block;
+    background: #E1DEE3;
 }
 
-    ul li a {
+    .vertical-menu a {
+        background-color: #E1DEE3;
+        color: #4F4641;
+        display: block;
+        padding: 18px;
         text-decoration: none;
-        font-size: 17px;
-        text-align: left;
-        color: #fff;
-        text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+        border-bottom: 1px solid #ededed;
     }
 
-    ul li:hover {
-        opacity: .9;
-        margin-left: 7px;
-    }
+        .vertical-menu a:hover {
+            background-color: #A61C3C; /* Dark grey background on mouse-over */
+            color: #ffffff;
+        }
+
+        .vertical-menu a.active {
+            background-color: #A61C3C; /* Add a green color to the "active/current" link */
+            color: white;
+        }
 
 
 footer {
     float: left;
-    background-color: #ccc;
+    background-color: #E1DEE3;
     width: 100%;
     height: 10%;
-    box-shadow: 5px 10px black;
     text-align: center;
 }
 
