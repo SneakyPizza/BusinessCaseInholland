@@ -6,6 +6,7 @@
     margin: auto;
 }
 
+/*Header design*/
 .header {
     background-color: #E1DEE3;
     float: right;
@@ -14,7 +15,7 @@
     padding-top: 1%;
 }
 
-
+/*Position Logo*/
 .logo {
     float: none;
     width: 300px;
@@ -23,20 +24,14 @@
     margin: auto;
 }
 
-@media screen and (max-width: 1400px ) {
-    .logo {
-        margin: auto;
-        float: none;
-    }
-}
-
+/*Size logo*/
 img {
     width: 300px;
     height: auto;
 }
 
 
-/*navbar van W3schools*/
+/*Navbar W3schools design*/
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -49,7 +44,7 @@ img {
 
     /* Style the links inside the navigation bar */
     .topnav a {
-        border-left: 1px solid #ededed;
+        border-left: 1px solid #A61C3C;
         float: right;
         display: block;
         color: #4F4641;
@@ -87,7 +82,10 @@ img {
 
 
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* responsive design navbar by 1400px */
+
+/*First button design navbar */
 @media screen and (max-width: 1400px ) {
     .topnav a:not(:first-child) {
         display: none;
@@ -98,8 +96,7 @@ img {
         display: block;
     }
 }
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+/*-----*/
 @media screen and (max-width: 1400px ) {
     .topnav.responsive {
         position: relative;
@@ -131,53 +128,47 @@ img {
         text-align: left;
     }
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*content box*/
+/*content box design*/
 .content {
     background-color: #ffffff;
     float: right;
     width: 80%;
-    height: 100%;
+    
 }
 
-/*.Sidebar {
-    float: left;
-    width: 15%;
-    height: 100%;
-    margin-top: 1%;
-    display: block;
-    background: #ccc;
-} */
 
-/*Opmaak sidebar menu*/
+/*Sidebar menu design*/
 .vertical-menu {
     width: 20%;
     float: left;
-    height: 100%;
     display: block;
     background: #E1DEE3;
+    height: auto;
 }
 
-    .vertical-menu a {
+    .vertical-menu a { /*Design sidebar menu*/
         background-color: #E1DEE3;
         color: #4F4641;
         display: block;
         padding: 18px;
         text-decoration: none;
-        border-bottom: 1px solid #ededed;
+        border-bottom: 1px solid #A61C3C;
     }
 
-        .vertical-menu a:hover {
-            background-color: #A61C3C; /* Dark grey background on mouse-over */
+        .vertical-menu a:hover { /* Red background on mouse-over */
+            background-color: #A61C3C;
             color: #ffffff;
         }
 
-        .vertical-menu a.active {
-            background-color: #A61C3C; /* Add a green color to the "active/current" link */
-            color: white;
+        .vertical-menu a.active { /* Add a red color to the "active" button */
+            background-color: #A61C3C;
+            color: #ffffff;
         }
 
 
+/*footer design*/
 footer {
     float: left;
     background-color: #E1DEE3;
