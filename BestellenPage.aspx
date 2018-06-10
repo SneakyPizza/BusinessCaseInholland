@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6786377ab77d3d5e0b20875e6e23102a57e9022c
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:Label ID="_PageTitle" runat="server" Text="Bestellen pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
     <br />
@@ -11,7 +14,7 @@
             <asp:BoundField DataField="Naam" HeaderText="Naam" ReadOnly="True" SortExpression="Naam" />
             <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
             <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" ReadOnly="True" SortExpression="Inkoopprijs" />
-            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal">
+            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" Visible="True">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Aantal") %>'></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvUpdateAmount" runat="server" ErrorMessage="Aantal is a required field" ControlToValidate="TextBox1" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>

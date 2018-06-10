@@ -26,18 +26,6 @@ public partial class BestellenPage : System.Web.UI.Page
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
         
-      
-        
-        //add pname + amount to database
-
-        if (Main.Conn() != null)
-        {
-            OleDbCommand cmd = new OleDbCommand();
-            //cmd.Parameters.Add(new OleDbParameter("@var1", ));
-            //cmd.Parameters.Add(new OleDbParameter("@var2", ));
-            cmd.Connection = Main.Conn();
-           // cmd.CommandText = "INSERT INTO InkoopOrder (Totaal Inkoopprijs, OrderDatum, BTWTarief, Pakbon, LeverancierNr) VALUES Totaal Inkoopprijs=@var1, TIMESTAMP, BTWTarief=@var3, Pakbon=@var4, LeverancierNr=@var5";
-        }
 
        
     }
