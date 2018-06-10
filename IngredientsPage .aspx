@@ -10,7 +10,7 @@
             <asp:BoundField DataField="ProductNr" HeaderText="ProductNr" SortExpression="ProductNr" />
             <asp:BoundField DataField="MinVoorraad" HeaderText="MinVoorraad" SortExpression="MinVoorraad" />
             <asp:BoundField DataField="MaxVoorraad" HeaderText="MaxVoorraad" SortExpression="MaxVoorraad" />
-            <asp:ButtonField ButtonType="Button" CommandName="AddToCart" Text="Add to Cart" />
+            <asp:ButtonField ButtonType="Button" CommandName="AddToCart" Text="Add to Cart"/>
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="Silver" Font-Bold="True" ForeColor="White" />
@@ -23,6 +23,7 @@
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/JECODatabase.accdb" SelectCommand="SELECT * FROM [Ingredient]"></asp:AccessDataSource>
+    <asp:Button ID="btn_Export" runat="server" OnClick="btn_Export_Click" Text="Export to Excell" />
     <br />
     <br />
     <br />

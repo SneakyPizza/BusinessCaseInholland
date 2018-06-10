@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
 
-<<<<<<< HEAD
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView">
         <Columns>
@@ -9,7 +8,7 @@
             <asp:BoundField DataField="Naam" HeaderText="Naam" ReadOnly="True" SortExpression="Naam" />
             <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
             <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" ReadOnly="True" SortExpression="Inkoopprijs" />
-            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal">
+            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" Visible="True">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Aantal") %>'></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvUpdateAmount" runat="server" ErrorMessage="Aantal is a required field" ControlToValidate="TextBox1" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
