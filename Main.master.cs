@@ -10,6 +10,7 @@ using System.Configuration;
 public partial class Main : System.Web.UI.MasterPage
 {
     private static OleDbConnection _conn;
+    public static BuyHandeler handeler = new BuyHandeler();
 
     protected void Page_Load(object sender, EventArgs e)
     {
