@@ -70,7 +70,7 @@ public partial class IngredientsPage : System.Web.UI.Page
         }
         catch (Exception exc)
         {
-
+            lbl_Error.Text = exc.Message;
         }
         finally
         {

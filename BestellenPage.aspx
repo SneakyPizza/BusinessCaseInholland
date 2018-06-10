@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
 
-<<<<<<< HEAD
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
+    <asp:Label ID="_PageTitle" runat="server" Text="Bestellen pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
+    <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

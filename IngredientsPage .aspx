@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="IngredientsPage .aspx.cs" Inherits="IngredientsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" Runat="Server">
+    <asp:Label ID="_PageTitle" runat="server" Text="Ingrediënten pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
+    <br />
     <asp:GridView ID="IngredientView" runat="server" AutoGenerateColumns="False" DataKeyNames="IngredientNr" DataSourceID="AccessDataSource1" AllowSorting="True" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" Width="50%" OnRowCommand="IngredientView_RowCommand">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
