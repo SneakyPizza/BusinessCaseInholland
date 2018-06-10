@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
 
+<<<<<<< HEAD
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView">
         <Columns>
@@ -21,6 +22,17 @@
             <asp:BoundField DataField="InkoopOrderNr" HeaderText="InkoopOrderNr" ReadOnly="True" SortExpression="InkoopOrderNr" Visible="False" />
             <asp:BoundField DataField="VoorraadNr" HeaderText="VoorraadNr" ReadOnly="True" SortExpression="VoorraadNr" Visible="False" />
         </Columns>
+        <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+        <EmptyDataRowStyle BorderStyle="None" BorderWidth="0px" />
+        <FooterStyle BackColor="#CCCC99" />
+        <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="#9D2E48" BorderStyle="None" BorderWidth="0px" />
+        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" BorderStyle="None" />
+        <RowStyle BackColor="White" BorderStyle="None" ForeColor="#57504C" />
+        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#E6E6E6" />
+        <SortedAscendingHeaderStyle BackColor="#9D2E48" ForeColor="White" />
+        <SortedDescendingCellStyle BackColor="#E6E6E6" />
+        <SortedDescendingHeaderStyle BackColor="#9D2E48" />
     </asp:GridView>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <asp:AccessDataSource ID="BestellenView" runat="server" DataFile="~/App_Data/JECODatabase.accdb" 
