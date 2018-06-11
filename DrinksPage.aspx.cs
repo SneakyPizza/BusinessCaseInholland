@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
+using System.IO;
 
 public partial class DrinksPage : System.Web.UI.Page
 {
@@ -60,8 +61,33 @@ public partial class DrinksPage : System.Web.UI.Page
 
     }
 
+    protected void btn_Export_Click(object sender, EventArgs e)
+    {
+
+    }
+
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btn_Export_Click1(object sender, EventArgs e)
+    {
+        //Clear output stream
+        Response.ClearContent();
+        //set filename
+        Response.AppendHeader("content-disposition", "attachment; filename=Drinks.xls");
+        //setcontenttype
+        Response.ContentType = "application/excel";
+
+        //set stringwriter to htmlwriter
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htmltw = new HtmlTextWriter(sw);
+
+        //Write the data to he .xls file
+        DrinksView.RenderControl(htmltw);
+        Response.Write(sw.ToString());
+        //end
+        Response.End();
     }
 }

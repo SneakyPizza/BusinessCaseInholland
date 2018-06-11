@@ -17,6 +17,7 @@
             <asp:ButtonField ButtonType="Button" CommandName="Edit" Text="Add To Cart" />
         </Columns>
     </asp:GridView>
+    <asp:Button ID="btn_ExportNonFood" runat="server" OnClick="btn_ExportNonFood_Click" Text="Export to Excel" />
     <asp:AccessDataSource ID="NonFoodView" runat="server" DataFile="~/App_Data/JECODatabase.accdb" DeleteCommand="DELETE FROM [NonFood] WHERE [NonFoodnr] = ?" InsertCommand="INSERT INTO [NonFood] ([NonFoodnr], [NonFoodNaam], [CategorieNr], [ProductNr], [Omschrijving], [MinVoorraad], [MaxVoorraad]) VALUES (?, ?, ?, ?, ?, ?, ?)" SelectCommand="SELECT * FROM [NonFood]" UpdateCommand="UPDATE [NonFood] SET [NonFoodNaam] = ?, [CategorieNr] = ?, [ProductNr] = ?, [Omschrijving] = ?, [MinVoorraad] = ?, [MaxVoorraad] = ? WHERE [NonFoodnr] = ?">
         <DeleteParameters>
             <asp:Parameter Name="NonFoodnr" Type="Int32" />

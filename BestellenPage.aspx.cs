@@ -14,9 +14,18 @@ public partial class BestellenPage : System.Web.UI.Page
     private string _pname;
     private int _ordernr;
     private OleDbConnection _conn = new OleDbConnection();
+    private HttpCookie _cookie;
+    private int _count;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        _count = 1;
+        if(_cookie == null)
+        {
+            _cookie = new HttpCookie("cookie");
+            _cookie.Values["ordercount"] = _count.ToString();
+        }
+        
         _conn.ConnectionString = ConfigurationManager.ConnectionStrings["JECO"].ToString();
         
         try
@@ -63,6 +72,13 @@ public partial class BestellenPage : System.Web.UI.Page
 
     }
 
+
+    protected void btn_ChangeOrder_Click(object sender, EventArgs e)
+    {
+        int order = Convert.ToInt32(tb_OrderNr.Text);
+        //BestellenOrderregel.SelectParameters["@Orderregelnr"] = order;
+    }
+
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -77,11 +93,11 @@ public partial class BestellenPage : System.Web.UI.Page
 
     protected void btn_Bestellen_Click(object sender, EventArgs e)
     {
-        OleDbConnection conn = Main.Conn();
-        OleDbCommand icmd = new OleDbCommand();
+        _count = Convert.ToInt32(_cookie.Values["ordercount"]) + 1;
+        _cookie.Values["ordercount"] = _count.ToString();
+        
 
-
+        lbl_error.Text = _cookie.Values["ordercount"].ToString();
     }
-
 }
 

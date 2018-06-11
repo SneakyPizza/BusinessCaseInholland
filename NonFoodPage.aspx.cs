@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
+using System.IO;
 
 public partial class NonFoodPage : System.Web.UI.Page
 {
@@ -58,5 +59,27 @@ public partial class NonFoodPage : System.Web.UI.Page
             conn.Close();
         }
 
+    }
+
+
+
+    protected void btn_ExportNonFood_Click(object sender, EventArgs e)
+    {
+        //Clear output stream
+        Response.ClearContent();
+        //set filename
+        Response.AppendHeader("content-disposition", "attachment; filename=Drinks.xls");
+        //setcontenttype
+        Response.ContentType = "application/excel";
+
+        //set stringwriter to htmlwriter
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htmltw = new HtmlTextWriter(sw);
+
+        //Write the data to he .xls file
+        NonFoodView.RenderControl(htmltw);
+        Response.Write(sw.ToString());
+        //end
+        Response.End();
     }
 }

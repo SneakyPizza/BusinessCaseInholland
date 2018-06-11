@@ -25,22 +25,10 @@
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/JECODatabase.accdb" SelectCommand="SELECT * FROM [Ingredient]"></asp:AccessDataSource>
-    <asp:Button ID="btn_Export" runat="server" OnClick="btn_Export_Click" Text="Export to Excell" />
+    <asp:Button ID="btn_Export" runat="server" OnClick="btn_Export_Click" Text="Export to Excel" />
     <br />
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="OrderregelCon">
-        <Columns>
-            <asp:BoundField DataField="Orderregelnr" HeaderText="Orderregelnr" InsertVisible="False" ReadOnly="True" SortExpression="Orderregelnr" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
-            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
-            <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" SortExpression="Inkoopprijs" />
-            <asp:BoundField DataField="BTW Tarief" HeaderText="BTW Tarief" SortExpression="BTW Tarief" />
-            <asp:BoundField DataField="InkoopOrderNr" HeaderText="InkoopOrderNr" SortExpression="InkoopOrderNr" />
-            <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
-        </Columns>
-    </asp:GridView>
-    <asp:Label ID="lbl_Error" runat="server" Text="Label"></asp:Label>
-    <asp:AccessDataSource ID="OrderregelCon" runat="server" DataFile="~/App_Data/JECODatabase.accdb" SelectCommand="SELECT * FROM [Orderregel]"></asp:AccessDataSource>
-</asp:Content>
+    <asp:Label ID="lbl_Error" runat="server"></asp:Label>
+    </asp:Content>
 

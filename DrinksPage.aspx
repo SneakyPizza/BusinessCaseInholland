@@ -19,6 +19,7 @@
             <asp:BoundField DataField="MaxVoorraad" HeaderText="MaxVoorraad" SortExpression="MaxVoorraad" />
         </Columns>
     </asp:GridView>
+    <asp:Button ID="btn_Export" runat="server" OnClick="btn_Export_Click1" Text="Export To Excel" />
     <asp:AccessDataSource ID="DrinksView" runat="server" DataFile="~/App_Data/JECODatabase.accdb" DeleteCommand="DELETE FROM [Drank] WHERE [DrankNr] = ?" InsertCommand="INSERT INTO [Drank] ([DrankNr], [DrankNaam], [Prijs], [Omschrijving], [BTW tarief], [CategorieNr], [ProductNr], [MinVoorraad], [MaxVoorraad]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" SelectCommand="SELECT * FROM [Drank]" UpdateCommand="UPDATE [Drank] SET [DrankNaam] = ?, [Prijs] = ?, [Omschrijving] = ?, [BTW tarief] = ?, [CategorieNr] = ?, [ProductNr] = ?, [MinVoorraad] = ?, [MaxVoorraad] = ? WHERE [DrankNr] = ?">
         <DeleteParameters>
             <asp:Parameter Name="DrankNr" Type="Int32" />

@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:Label ID="_PageTitle" runat="server" Text="Bestellen pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
+    <asp:TextBox ID="tb_OrderNr" runat="server" AutoPostBack="True" Height="16px" Width="16px" Text="1">1</asp:TextBox>
+    <asp:Button ID="btn_ChangeOrder" runat="server" Height="22px" OnClick="btn_ChangeOrder_Click" Text="Change order" Width="69px" CssClass="button" />
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="BestellenOrderregel" AllowSorting="True">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="Orderregelnr" HeaderText="Nr" InsertVisible="False" SortExpression="Orderregelnr" />
+            <asp:BoundField DataField="Orderregelnr" HeaderText="Nr" InsertVisible="False" SortExpression="Orderregelnr"  />
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
             <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" SortExpression="Inkoopprijs" />
@@ -16,7 +18,7 @@
             <asp:BoundField DataField="Totaal Inkoopprijs" HeaderText="Totaal Inkoopprijs" SortExpression="Totaal Inkoopprijs" Visible="False" />
             <asp:BoundField DataField="OrderDatum" HeaderText="OrderDatum" SortExpression="OrderDatum" Visible="False" />
             <asp:BoundField DataField="Pakbon" HeaderText="Pakbon" SortExpression="Pakbon" Visible="False" />
-            <asp:BoundField DataField="LeverancierNr" HeaderText="LeverancierNr" SortExpression="LeverancierNr" />
+            <asp:BoundField DataField="LeverancierNr" HeaderText="LeverancierNr" SortExpression="LeverancierNr" Visible="False" />
         </Columns>
         <EditRowStyle BorderStyle="None" BorderWidth="0px" />
         <EmptyDataRowStyle BorderStyle="None" BorderWidth="0px" />
@@ -31,8 +33,7 @@
         <SortedDescendingHeaderStyle BackColor="#9D2E48" />
     </asp:GridView>
     <asp:Button ID="btn_Bestellen" runat="server" OnClick="btn_Bestellen_Click" Text="Bestellen" />
-    <asp:TextBox ID="tb_OrderNr" runat="server" AutoPostBack="True" Height="16px" Width="16px" Text="1">1</asp:TextBox>
-    <asp:Label ID="lbl_error" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="lbl_error" runat="server"></asp:Label>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <asp:AccessDataSource ID="BestellenOrderregel" runat="server" DataFile="~/App_Data/JECODatabase.accdb" 
         DeleteCommand="DELETE FROM [Orderregel] WHERE [Orderregelnr] = ?" 
@@ -60,10 +61,10 @@
             <asp:Parameter Name="InkoopOrderNr" Type="Int32" />
             <asp:Parameter Name="VoorraadNr" Type="Int32" />
             <asp:Parameter Name="Aantal" Type="Int32" />
-            <asp:Parameter Name="Orderregelnr" Type="Int32" />
+           <asp:Parameter Name="Orderregelnr" Type="Int32" />
         </UpdateParameters>
         <SelectParameters>
-            <asp:Parameter Name="Orderregelnr" Type="Int32" DefaultValue="1" />
+            <asp:controlparameter Name="Orderregelnr" Type="Int32" DefaultValue="1" ControlID="tb_OrderNr" />
         </SelectParameters>
     </asp:AccessDataSource>
 </asp:Content>
