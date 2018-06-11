@@ -10,6 +10,7 @@ using System.Data.OleDb;
 using ExcelLibrary.CompoundDocumentFormat;
 using ExcelLibrary.SpreadSheet;
 using System.IO;
+using System.Configuration;
 
 public partial class IngredientsPage : System.Web.UI.Page
 {
@@ -18,42 +19,30 @@ public partial class IngredientsPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
-            if (Main.Conn() != null)
-            {
-                _conn = Main.Conn();
-                _conn.Open();
+        _conn.ConnectionString = ConfigurationManager.ConnectionStrings["JECO"].ToString();
+        OleDbCommand cmd = new OleDbCommand();
+        //cmd.CommandText = "SELECT OrderNr FROM "
 
-                OleDbCommand cmd = new OleDbCommand();
-                cmd.Connection = _conn;
-                cmd.CommandText = "SELECT * FROM product";
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd.CommandText, _conn);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-            }
-        }
-        catch(Exception exc)
-        {
-            lbl_Error.Text = exc.Message;
-        }
-        finally
-        {
-            _conn.Close();
-        }
     }
 
+    //Export the table to a .xls file
     protected void btn_Export_Click(object sender, EventArgs e)
     {
+        //Clear output stream
         Response.ClearContent();
+        //set filename
         Response.AppendHeader("content-disposition", "attachment; filename=Ingrediententen.xls");
+        //setcontenttype
         Response.ContentType = "application/excel";
 
+        //set stringwriter to htmlwriter
         StringWriter sw = new StringWriter();
         HtmlTextWriter htmltw = new HtmlTextWriter(sw);
 
+        //Write the data to he .xls file
         IngredientView.RenderControl(htmltw);
         Response.Write(sw.ToString());
+        //end
         Response.End();
     }
 
@@ -64,32 +53,34 @@ public partial class IngredientsPage : System.Web.UI.Page
             //int index = IngredientView.SelectedRow.RowIndex;
             int index = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = IngredientView.Rows[index];
+
+            int ordernr = Convert.ToInt32(IngredientView.Rows.Count);
+            double pricerow = Convert.ToDouble(row.Cells[3].Text);
+          //  int idrow = Convert.ToInt32(row.Cells[0].Text);
             //Add to shoppingcart\
             if(row != null)
             {
-                Additem(/*Convert.ToInt32(row.Cells[1].Text),*/ row.Cells[2].Text.ToString(), row.Cells[3].Text.ToString(), BTWINGREDIENT);
+                Additem(ordernr, row.Cells[1].Text.ToString(), row.Cells[2].Text.ToString(), pricerow, BTWINGREDIENT);
             }
         }
     }
-
-    private void Additem(string itemName, string itemDesc, int btw)
+    //inset the id, name, desc, price and btw to the function to add too the Orderregel Table
+    private void Additem(int itemid, string itemName, string itemDesc,double itemPrice, int btw)
     {
         try
         {
             int amount = 1;
-            
+            _conn.Open();
             OleDbCommand cmd = new OleDbCommand();
-
-            //cmd.Parameters.AddWithValue("@id", itemId);
+            cmd.Connection = _conn;
+            cmd.Parameters.AddWithValue("@id", itemid);
             cmd.Parameters.AddWithValue("@name", itemName);
             cmd.Parameters.AddWithValue("@desc", itemDesc);
-            //cmd.Parameters.AddWithValue("@price", itemPrice);
+            cmd.Parameters.AddWithValue("@price", itemPrice);
             cmd.Parameters.AddWithValue("@btw", btw);
             cmd.Parameters.AddWithValue("@amount", amount);
-
-            cmd.CommandText = "INSERT INTO Orderregel(naam, Omschrijving, Inkoopprijs, BTW Tarief, Aantal)" +
-                "VALUES(@name, @desc, @btw, @amount)";
-            _conn.Open();
+            cmd.CommandText = "INSERT INTO Orderregel(naam, Omschrijving, Inkoopprijs, [BTW Tarief], Aantal)" +
+            "VALUES(@id, @name, @price, @desc, @btw, @amount)";
             cmd.ExecuteNonQuery();
 
         }

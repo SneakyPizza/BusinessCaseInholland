@@ -37,7 +37,6 @@
             <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" SortExpression="Inkoopprijs" />
             <asp:BoundField DataField="BTW Tarief" HeaderText="BTW Tarief" SortExpression="BTW Tarief" />
             <asp:BoundField DataField="InkoopOrderNr" HeaderText="InkoopOrderNr" SortExpression="InkoopOrderNr" />
-            <asp:BoundField DataField="VoorraadNr" HeaderText="VoorraadNr" SortExpression="VoorraadNr" />
             <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
         </Columns>
     </asp:GridView>

@@ -2,25 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:Label ID="_PageTitle" runat="server" Text="Bestellen pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView" AllowSorting="True">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="BestellenOrderregel" AllowSorting="True">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="Orderregelnr" HeaderText="Orderregelnr" InsertVisible="False" ReadOnly="True" SortExpression="Orderregelnr" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" ReadOnly="True" SortExpression="Naam" />
-            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
-            <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" ReadOnly="True" SortExpression="Inkoopprijs" />
-            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" Visible="True">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Aantal") %>'></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvUpdateAmount" runat="server" ErrorMessage="Aantal is a required field" ControlToValidate="TextBox1" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Aantal") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="BTW Tarief" HeaderText="BTW Tarief" SortExpression="BTW Tarief" ReadOnly="True" />
-            <asp:BoundField DataField="InkoopOrderNr" HeaderText="InkoopOrderNr" ReadOnly="True" SortExpression="InkoopOrderNr" Visible="False" />
-            <asp:BoundField DataField="VoorraadNr" HeaderText="VoorraadNr" ReadOnly="True" SortExpression="VoorraadNr" Visible="False" />
+            <asp:BoundField DataField="Orderregelnr" HeaderText="Nr" InsertVisible="False" SortExpression="Orderregelnr" />
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+            <asp:BoundField DataField="Inkoopprijs" HeaderText="Inkoopprijs" SortExpression="Inkoopprijs" />
+            <asp:BoundField DataField="BTW Tarief" HeaderText="BTW Tarief" SortExpression="BTW Tarief" />
+            <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
+            <asp:BoundField DataField="Orderregel.InkoopOrderNr" HeaderText="Orderregel.InkoopOrderNr" SortExpression="Orderregel.InkoopOrderNr" Visible="False" />
+            <asp:BoundField DataField="InkoopOrder.InkoopOrderNr" HeaderText="InkoopOrder.InkoopOrderNr" InsertVisible="False" SortExpression="InkoopOrder.InkoopOrderNr" Visible="False" />
+            <asp:BoundField DataField="Totaal Inkoopprijs" HeaderText="Totaal Inkoopprijs" SortExpression="Totaal Inkoopprijs" Visible="False" />
+            <asp:BoundField DataField="OrderDatum" HeaderText="OrderDatum" SortExpression="OrderDatum" Visible="False" />
+            <asp:BoundField DataField="Pakbon" HeaderText="Pakbon" SortExpression="Pakbon" Visible="False" />
+            <asp:BoundField DataField="LeverancierNr" HeaderText="LeverancierNr" SortExpression="LeverancierNr" />
         </Columns>
         <EditRowStyle BorderStyle="None" BorderWidth="0px" />
         <EmptyDataRowStyle BorderStyle="None" BorderWidth="0px" />
@@ -38,11 +34,11 @@
     <asp:TextBox ID="tb_OrderNr" runat="server" AutoPostBack="True" Height="16px" Width="16px" Text="1">1</asp:TextBox>
     <asp:Label ID="lbl_error" runat="server" Text="Label"></asp:Label>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    <asp:AccessDataSource ID="BestellenView" runat="server" DataFile="~/App_Data/JECODatabase.accdb" 
+    <asp:AccessDataSource ID="BestellenOrderregel" runat="server" DataFile="~/App_Data/JECODatabase.accdb" 
         DeleteCommand="DELETE FROM [Orderregel] WHERE [Orderregelnr] = ?" 
         InsertCommand="INSERT INTO [Orderregel] ([Orderregelnr], [Naam], [Omschrijving], [Inkoopprijs], [BTW Tarief], [InkoopOrderNr], [VoorraadNr], [Aantal]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" 
-        SelectCommand="SELECT * FROM [Orderregel] WHERE [OrderregelNr] = (orderregelnr)" 
-        UpdateCommand="UPDATE [Orderregel] SET [Aantal] = ? WHERE [Orderregelnr] = ?">
+        SelectCommand="SELECT * FROM [Orderregel] INNER JOIN InkoopOrder ON Orderregel.InkoopOrderNr = InkoopOrder.InkoopOrderNr WHERE Orderregel.InkoopOrderNr = @Orderregelnr"
+        UpdateCommand="UPDATE [Orderregel] SET [Aantal] = ? WHERE [Orderregelnr] = @Orderregelnr">
         <DeleteParameters>
             <asp:Parameter Name="Orderregelnr" Type="Int32" />
         </DeleteParameters>
@@ -67,7 +63,7 @@
             <asp:Parameter Name="Orderregelnr" Type="Int32" />
         </UpdateParameters>
         <SelectParameters>
-           <asp:Parameter Name="OrderregelNr" Type="Int32" />
+            <asp:Parameter Name="Orderregelnr" Type="Int32" DefaultValue="1" />
         </SelectParameters>
     </asp:AccessDataSource>
 </asp:Content>
