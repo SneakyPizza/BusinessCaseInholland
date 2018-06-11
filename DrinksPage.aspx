@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="DrinksPage.aspx.cs" Inherits="DrinksPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" Runat="Server">
-<<<<<<< HEAD
+
     <asp:Label ID="_PageTitle" runat="server" Text="Dranken pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C" style="text-align: center"></asp:Label>
     <br />
-=======
+
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="DrankNr" DataSourceID="DrinksView" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" RowCommand="AddDrinks">
         <Columns>
             <asp:BoundField DataField="DrankNr" HeaderText="DrankNr" InsertVisible="False" ReadOnly="True" SortExpression="DrankNr" Visible="False" />
@@ -46,6 +46,5 @@
             <asp:Parameter Name="DrankNr" Type="Int32" />
         </UpdateParameters>
     </asp:AccessDataSource>
->>>>>>> 6786377ab77d3d5e0b20875e6e23102a57e9022c
 </asp:Content>
 

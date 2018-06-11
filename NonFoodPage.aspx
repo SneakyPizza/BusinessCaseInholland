@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="NonFoodPage.aspx.cs" Inherits="NonFoodPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" Runat="Server">
-<<<<<<< HEAD
+
     <asp:Label ID="_PageTitle" runat="server" Text="NonFood pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
     <br />
-=======
+
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="NonFoodnr" DataSourceID="NonFoodView" RowCommand="AddNonFood">
         <Columns>
             <asp:BoundField DataField="NonFoodnr" HeaderText="NonFoodnr" InsertVisible="False" ReadOnly="True" SortExpression="NonFoodnr" Visible="False" />
@@ -40,6 +40,6 @@
             <asp:Parameter Name="NonFoodnr" Type="Int32" />
         </UpdateParameters>
     </asp:AccessDataSource>
->>>>>>> 6786377ab77d3d5e0b20875e6e23102a57e9022c
+
 </asp:Content>
 
