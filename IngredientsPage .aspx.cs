@@ -28,7 +28,9 @@ public partial class IngredientsPage : System.Web.UI.Page
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = _conn;
                 cmd.CommandText = "SELECT * FROM product";
-
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd.CommandText, _conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
             }
         }
         catch(Exception exc)
@@ -39,6 +41,20 @@ public partial class IngredientsPage : System.Web.UI.Page
         {
             _conn.Close();
         }
+    }
+
+    protected void btn_Export_Click(object sender, EventArgs e)
+    {
+        Response.ClearContent();
+        Response.AppendHeader("content-disposition", "attachment; filename=Ingrediententen.xls");
+        Response.ContentType = "application/excel";
+
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htmltw = new HtmlTextWriter(sw);
+
+        IngredientView.RenderControl(htmltw);
+        Response.Write(sw.ToString());
+        Response.End();
     }
 
     protected void IngredientView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -89,41 +105,9 @@ public partial class IngredientsPage : System.Web.UI.Page
     }
 
     //Export ingredients to excel 
-    protected void btn_Export_Click(object sender, EventArgs e)
+
+
+    public override void VerifyRenderingInServerForm(Control control)
     {
-        OleDbConnection conn = Main.Conn();
-        
-        OleDbDataAdapter da = new OleDbDataAdapter();
-        OleDbCommand cmd = new OleDbCommand("SELECT * FROM Ingredient");
-
-        cmd.Connection = conn;
-        da.SelectCommand = cmd;
-        DataTable dt = new DataTable();
-        da.Fill(dt);
-
-        //create excel file 
-        string file = "ExportSql.xlsx";
-        //string path = Path.Combine((, @"JOTYApplication\JOTYApplication\Reports\", file);
-        string dir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        string path = Path.Combine(dir, file);
-        Workbook workbook = new Workbook();
-        Worksheet worksheet = new Worksheet("First Sheet");
-        worksheet.Cells[0, 1] = new Cell((short)1); worksheet.Cells[2, 0] = new Cell(9999999);
-         worksheet.Cells[3, 3] = new Cell((decimal)3.45); worksheet.Cells[2, 2] = new Cell("Text string");
-         worksheet.Cells[2, 4] = new Cell("Second string"); worksheet.Cells[4, 0] = new Cell(32764.5, "#,##0.00");
-         worksheet.Cells[5, 1] = new Cell(DateTime.Now, @"YYYY-MM-DD");
-         worksheet.Cells.ColumnWidth[0, 1] = 3000;
-
-        workbook.Worksheets.Add(worksheet);
-        Response.Clear();
-        Response.Buffer = true;
-        Response.Charset = "";
-        Response.ContentType = "";
-        Response.AddHeader("content-dispotion", "attachment;filename=SqlExport.xlsx");
-        workbook.Save(path);
-
-        // open excel file
-        Workbook book = Workbook.Load(path);
-        Worksheet sheet = book.Worksheets[0];
     }
 }

@@ -1,13 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="BestellenPage.aspx.cs" Inherits="BestellenPage" %>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6786377ab77d3d5e0b20875e6e23102a57e9022c
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentAsp" runat="Server">
     <asp:Label ID="_PageTitle" runat="server" Text="Bestellen pagina" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Font-Strikeout="False" ForeColor="#57504C"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Orderregelnr" DataSourceID="BestellenView" AllowSorting="True">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Orderregelnr" HeaderText="Orderregelnr" InsertVisible="False" ReadOnly="True" SortExpression="Orderregelnr" />
@@ -39,11 +34,14 @@
         <SortedDescendingCellStyle BackColor="#E6E6E6" />
         <SortedDescendingHeaderStyle BackColor="#9D2E48" />
     </asp:GridView>
+    <asp:Button ID="btn_Bestellen" runat="server" OnClick="btn_Bestellen_Click" Text="Bestellen" />
+    <asp:TextBox ID="tb_OrderNr" runat="server" AutoPostBack="True" Height="16px" Width="16px" Text="1">1</asp:TextBox>
+    <asp:Label ID="lbl_error" runat="server" Text="Label"></asp:Label>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <asp:AccessDataSource ID="BestellenView" runat="server" DataFile="~/App_Data/JECODatabase.accdb" 
         DeleteCommand="DELETE FROM [Orderregel] WHERE [Orderregelnr] = ?" 
         InsertCommand="INSERT INTO [Orderregel] ([Orderregelnr], [Naam], [Omschrijving], [Inkoopprijs], [BTW Tarief], [InkoopOrderNr], [VoorraadNr], [Aantal]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" 
-        SelectCommand="SELECT * FROM [Orderregel]" 
+        SelectCommand="SELECT * FROM [Orderregel] WHERE [OrderregelNr] = (orderregelnr)" 
         UpdateCommand="UPDATE [Orderregel] SET [Aantal] = ? WHERE [Orderregelnr] = ?">
         <DeleteParameters>
             <asp:Parameter Name="Orderregelnr" Type="Int32" />
@@ -68,6 +66,9 @@
             <asp:Parameter Name="Aantal" Type="Int32" />
             <asp:Parameter Name="Orderregelnr" Type="Int32" />
         </UpdateParameters>
+        <SelectParameters>
+           <asp:Parameter Name="OrderregelNr" Type="Int32" />
+        </SelectParameters>
     </asp:AccessDataSource>
 </asp:Content>
 

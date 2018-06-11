@@ -25,12 +25,12 @@ public partial class Main : System.Web.UI.MasterPage
          catch(Exception exc)
          {
              //Error message Display
-             _ErrorText.Text = exc.Message;
+             //_ErrorText.Text = exc.Message;
          }
          finally
          {
              _conn.Close();
-            _ErrorText.Text = "Done";
+            //_ErrorText.Text = "Done";
          }
    
     }
@@ -38,5 +38,33 @@ public partial class Main : System.Web.UI.MasterPage
     public static OleDbConnection Conn()
     {
         return _conn;
+    }
+
+    public static string OrderNumber()
+    {
+        try
+        {
+            OleDbCommand cmd = new OleDbCommand("SELECT OrderregelNr FROM Orderregel", _conn);
+            _conn.Open();
+            OleDbDataReader r = cmd.ExecuteReader();
+            if (r.Read())
+            {
+                return r["OrderregelNr"].ToString();
+            }
+            else
+            {
+                return "Bad order";
+            }
+        }
+        catch
+        {
+            
+            return "Error";
+        }
+        finally
+        {
+            _conn.Close();
+        }
+      
     }
 }
