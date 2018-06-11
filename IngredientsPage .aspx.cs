@@ -7,8 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.OleDb;
 
-using ExcelLibrary.CompoundDocumentFormat;
-using ExcelLibrary.SpreadSheet;
 using System.IO;
 
 public partial class IngredientsPage : System.Web.UI.Page
